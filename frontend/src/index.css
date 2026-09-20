@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #f4f2ee;
+  color: #0a0a0a;
+}
+
+body {
+  font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfcbc4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .panel {
+    @apply bg-surface border border-ink rounded-sm shadow-panel;
+  }
+  .panel-soft {
+    @apply bg-surface border border-line-soft rounded-sm;
+  }
+  .btn {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium rounded-sm border border-ink bg-surface text-ink hover:bg-page transition-colors disabled:opacity-40 disabled:pointer-events-none whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-jev text-white border-jev hover:bg-jev-ink;
+  }
+  .btn-electric {
+    @apply btn bg-electric text-white border-electric hover:bg-electric/90;
+  }
+  .mono {
+    @apply font-mono text-[10px] leading-snug tracking-tight;
+  }
+  .label-caps {
+    @apply text-[9px] uppercase tracking-[0.12em] text-ink-mute font-semibold;
+  }
+  .metric-value {
+    @apply font-mono text-base font-semibold tabular-nums text-ink leading-none;
+  }
+}
+
+@keyframes strip-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.animate-strip-active {
+  animation: strip-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes bar-fill {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

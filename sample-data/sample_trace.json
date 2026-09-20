@@ -1,0 +1,162 @@
+{
+  "id": "trace_0000",
+  "agent_name": "browser-navigator",
+  "status": "failure",
+  "started_at": "2026-09-01T12:00:00Z",
+  "duration_ms": 9216,
+  "estimated_cost_usd": 0.4914,
+  "user_request": "Book a flight to Berlin for next Tuesday under $400",
+  "steps": [
+    {
+      "timestamp": "2026-09-01T12:00:00Z",
+      "role": "user",
+      "action": "request",
+      "tool_name": null,
+      "input": "user_request",
+      "output": null,
+      "status": "ok",
+      "error": null
+    },
+    {
+      "timestamp": "2026-09-01T12:00:00.613000Z",
+      "role": "assistant",
+      "action": "call_api",
+      "tool_name": "http_request",
+      "input": {
+        "url": "/v1/search",
+        "attempt": 1
+      },
+      "output": null,
+      "status": "error",
+      "error": "429 Too Many Requests: rate limit exceeded"
+    },
+    {
+      "timestamp": "2026-09-01T12:00:01.491000Z",
+      "role": "assistant",
+      "action": "retry_wait",
+      "tool_name": null,
+      "input": {
+        "backoff_ms": 200
+      },
+      "output": {
+        "waited": true
+      },
+      "status": "retry",
+      "error": null
+    },
+    {
+      "timestamp": "2026-09-01T12:00:01.947000Z",
+      "role": "assistant",
+      "action": "call_api",
+      "tool_name": "http_request",
+      "input": {
+        "url": "/v1/search",
+        "attempt": 2
+      },
+      "output": null,
+      "status": "error",
+      "error": "429 Too Many Requests: rate limit exceeded"
+    },
+    {
+      "timestamp": "2026-09-01T12:00:02.986000Z",
+      "role": "assistant",
+      "action": "retry_wait",
+      "tool_name": null,
+      "input": {
+        "backoff_ms": 400
+      },
+      "output": {
+        "waited": true
+      },
+      "status": "retry",
+      "error": null
+    },
+    {
+      "timestamp": "2026-09-01T12:00:03.506000Z",
+      "role": "assistant",
+      "action": "call_api",
+      "tool_name": "http_request",
+      "input": {
+        "url": "/v1/search",
+        "attempt": 3
+      },
+      "output": null,
+      "status": "error",
+      "error": "429 Too Many Requests: rate limit exceeded"
+    },
+    {
+      "timestamp": "2026-09-01T12:00:04.418000Z",
+      "role": "assistant",
+      "action": "retry_wait",
+      "tool_name": null,
+      "input": {
+        "backoff_ms": 600
+      },
+      "output": {
+        "waited": true
+      },
+      "status": "retry",
+      "error": null
+    },
+    {
+      "timestamp": "2026-09-01T12:00:04.925000Z",
+      "role": "assistant",
+      "action": "call_api",
+      "tool_name": "http_request",
+      "input": {
+        "url": "/v1/search",
+        "attempt": 4
+      },
+      "output": null,
+      "status": "error",
+      "error": "429 Too Many Requests: rate limit exceeded"
+    },
+    {
+      "timestamp": "2026-09-01T12:00:05.810000Z",
+      "role": "assistant",
+      "action": "retry_wait",
+      "tool_name": null,
+      "input": {
+        "backoff_ms": 800
+      },
+      "output": {
+        "waited": true
+      },
+      "status": "retry",
+      "error": null
+    },
+    {
+      "timestamp": "2026-09-01T12:00:06.448000Z",
+      "role": "assistant",
+      "action": "call_api",
+      "tool_name": "http_request",
+      "input": {
+        "url": "/v1/search",
+        "attempt": 5
+      },
+      "output": null,
+      "status": "error",
+      "error": "429 Too Many Requests: rate limit exceeded"
+    },
+    {
+      "timestamp": "2026-09-01T12:00:07.324000Z",
+      "role": "assistant",
+      "action": "retry_wait",
+      "tool_name": null,
+      "input": {
+        "backoff_ms": 1000
+      },
+      "output": {
+        "waited": true
+      },
+      "status": "retry",
+      "error": null
+    }
+  ],
+  "metadata": {
+    "synthetic": true,
+    "failure_pattern": "rate_limit_retry_loop",
+    "seed": 42,
+    "demo": true
+  }
+}

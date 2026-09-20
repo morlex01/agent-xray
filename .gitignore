@@ -1,0 +1,55 @@
+# Secrets
+.env
+backend/.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg
+dist/
+build/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/node_modules/
+.npm
+*.tsbuildinfo
+
+# Data / uploads / generated results
+data/uploads/
+data/results/*
+!data/results/.gitkeep
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Coverage
+htmlcov/
+.coverage
+coverage/
+
+# Local packaging / scratch
+*.zip
+/tmp/

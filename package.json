@@ -1,0 +1,22 @@
+{
+  "name": "agent-xray",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent X-Ray — Find out why your AI agents fail. Powered by TypeSafe JEV.",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && python3 -m venv backend/.venv && backend/.venv/bin/pip install -r backend/requirements.txt",
+    "generate:demo": "backend/.venv/bin/python scripts/generate_demo_traces.py",
+    "dev:backend": "cd backend && .venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev": "npx concurrently -k -n api,web -c cyan,magenta \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build": "npm run build --prefix frontend",
+    "preview": "npm run preview --prefix frontend",
+    "test": "cd backend && .venv/bin/pytest -q",
+    "start:backend": "cd backend && .venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000",
+    "start:frontend": "npm run preview --prefix frontend -- --host 127.0.0.1 --port 4173",
+    "start": "npx concurrently -k -n api,web -c cyan,magenta \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
